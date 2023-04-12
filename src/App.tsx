@@ -1,9 +1,14 @@
+import "./main.scss"
+import {Route , Routes , Navigate} from "react-router-dom"
+
 
 const App = () => {
   return(
-  <div>
-
-  </div>)
-}
+  <>
+    <Routes>
+      
+    </Routes>
+  </>
+)}
 
 export default App
