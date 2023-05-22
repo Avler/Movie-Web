@@ -2,7 +2,8 @@ import "./header.scss"
 import logo from "../../assets/logo.png"
 import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars } from "@fortawesome/free-solid-svg-icons"
+import { faBars , faSearch } from "@fortawesome/free-solid-svg-icons"
+import { faUser  } from "@fortawesome/free-regular-svg-icons"
 
 const Header = () => {
 
@@ -13,13 +14,18 @@ const Header = () => {
     }
     return(
         <section className="header-section">
-            <div>
-                {navMenu ? <nav> </nav>:<FontAwesomeIcon icon={faBars} />}
-                <div><img src={logo} alt="logo" /></div>
-                <div></div>
+            <div className="header-section-head">
+                {navMenu ? <nav> </nav>:<FontAwesomeIcon icon={faBars} size="lg" style={{color: "#ffffff",}}/>}
+                <div className="header-section-head-logo">
+                    <img src={logo} alt="logo" className="logo"/>
+                </div>
+                <div>
+                    <FontAwesomeIcon icon={faUser} size="lg" style={{color: "#ffffff",}}/>
+                </div>
             </div>
-            <div>
-                <input type="text" />
+            <div className="header-section-search">
+                <input type="text" className="search-input" />
+                <FontAwesomeIcon icon={faSearch} size="sm" className="icon"  />
             </div>
         </section>
     )
