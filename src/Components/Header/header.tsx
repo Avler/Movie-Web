@@ -2,7 +2,7 @@ import "./header.scss"
 import logo from "../../assets/logo.png"
 import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars , faSearch } from "@fortawesome/free-solid-svg-icons"
+import { faBars , faSearch ,faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import { faUser  } from "@fortawesome/free-regular-svg-icons"
 
 const Header = () => {
@@ -15,18 +15,34 @@ const Header = () => {
     return(
         <section className="header-section">
             <div className="header-section-head">
-                {navMenu ? <nav> </nav>:<FontAwesomeIcon icon={faBars} size="lg" style={{color: "#ffffff",}}/>}
+                {navMenu ?
+                 <nav className="header-section-nav" > 
+                    <button className="close-btn" onClick={() => showMenu(false)}><FontAwesomeIcon icon={faArrowLeft} style={{color: "#000000",}} />Close menu</button>
+                    <ul className="nav-list">
+                        <li className="nav-items">Home</li>
+                        <li className="nav-items">Movies</li>
+                        <li className="nav-items">TV Shows</li>
+                    </ul>
+                </nav> : <></>}
+                <FontAwesomeIcon icon={faBars} size="xl" style={{color: "#ffffff",}} onClick={() => showMenu(true)} className="menu-icon"/>
                 <div className="header-section-head-logo">
                     <img src={logo} alt="logo" className="logo"/>
                 </div>
+                <div className="nav-bar-md">
+                    <ul className="nav-list">
+                        <li className="nav-items">Home</li>
+                        <li className="nav-items">Movies</li>
+                        <li className="nav-items">TV Shows</li>
+                    </ul>
+                </div>
                 <div>
-                    <FontAwesomeIcon icon={faUser} size="lg" style={{color: "#ffffff",}}/>
+                    <FontAwesomeIcon icon={faUser} size="xl" style={{color: "#ffffff",}}/>
                 </div>
             </div>
-            <div className="header-section-search">
-                <input type="text" className="search-input" />
+            <form className="header-section-search">
                 <FontAwesomeIcon icon={faSearch} size="sm" className="icon"  />
-            </div>
+                <input type="text" className="search-input" />
+            </form>
         </section>
     )
 }
