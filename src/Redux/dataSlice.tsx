@@ -10,5 +10,5 @@ export const dataSlice = createSlice({
     }
 })
 
-export const getAllData = dataSlice.actions
+export const {getAllData} = dataSlice.actions
 export default dataSlice.reducer
