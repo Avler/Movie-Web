@@ -35,7 +35,7 @@ const changeCaterogry = (item:boolean) => {
       <section className="home-cont">
         <div className="home-cont-title">
             <h1 className="home-title">Av Movies</h1>
-            <p className="home-des">Himovies - Hd movies online - watch new movies online free - Watch movies online for free and watch tv shows online free with HiMovies.to . We're a great alternative to putlocker tv.</p>
+            <p className="home-des">Av movies - Hd movies online - watch new movies online free - Watch movies online for free and watch tv shows online free with HiMovies.to . We're a great alternative to putlocker tv.</p>
         </div>
         <div className="home-cont-btns">
             <button className={showCategory? "btn-active" : "btn"} onClick={() =>changeCaterogry(true)}>Movies</button>

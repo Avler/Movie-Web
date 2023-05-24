@@ -4,7 +4,7 @@ const Footer = () => {
     return(
         <section className="footer-cont">
             <div className="footer-cont-des">
-                <p className="text">AvMovies  is a Free Movies streaming site with zero ads. We let you watch movies online without having to register or paying, with over 10000 movies and TV-Series.</p>
+                <p className="text">Av Movies  is a Free Movies streaming site with zero ads. We let you watch movies online without having to register or paying, with over 10000 movies and TV-Series.</p>
             </div>
             <div className="footer-cont-info">
                 <ul className="footer-cont-list">
