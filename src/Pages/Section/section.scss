@@ -34,7 +34,7 @@
                         width: 800px;
                         height: 450px;
                     }
-                    @media(min-width: 140px){
+                    @media(min-width: 1440px){
                         width: 1000px;
                         height: 600px;
                     }
@@ -90,6 +90,7 @@
                 .des{
                     padding: 20px;
                     color: #eae9e9;
+                    max-width: 1260px;
                 }
             }
             .info-cont{
