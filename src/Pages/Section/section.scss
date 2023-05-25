@@ -94,8 +94,10 @@
                 }
             }
             .info-cont{
+                width: 100%;
                 @media(min-width: 1160px){
                     display: flex;
+                    justify-content: flex-start;
                 }
                 .info1-cont{
                     width: 100%;
