@@ -36,7 +36,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div>
-                    <FontAwesomeIcon icon={faUser} size="xl" style={{color: "#ffffff",}}/>
+                    <FontAwesomeIcon icon={faUser} size="xl" style={{color: "#ffffff",}} className="user-icon"/>
                 </div>
             </div>
             <form className="header-section-search">

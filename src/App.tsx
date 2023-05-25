@@ -7,6 +7,7 @@ import {useDispatch , useSelector} from "react-redux"
 import { getAllData } from "./Redux/dataSlice"
 import supabase from "./supabase"
 import {useEffect} from "react"
+import Section from "./Pages/Section/Section"
 
 export interface dataMovies {
   id:number,
@@ -18,48 +19,55 @@ export interface dataMovies {
   genre:string,
   img:string,
   img_poster:string,
-  relesed:string,
+  released:string,
   title:string,
-  trailer:string
+  trailer:string,
+  route:string,
 }
 
-const App = () => {
+  const App = () => {
 
-  const dispatch = useDispatch()
+      const dispatch = useDispatch()
+      const data = useSelector((state:{data:{value: {item:dataMovies[]}}}) => state.data.value.item)
 
-  useEffect(() => {
-    getData()
-  },[])
+      const elementsRoot = data.map(elem => {
+        return <Route path={elem.route} key={elem.id} element={<Section /> }></Route>
+      })
 
-  async function getData() {
-    const { data} = await supabase
-    .from('data-movies')
-    .select('*')
-    dispatch(getAllData({item:data}))
-  } 
+      useEffect(() => {
+        getData()
+      },[])
 
-  const Root = () => {
-   return(
+      async function getData() {
+        const { data} = await supabase
+        .from('data-movies')
+        .select('*')
+        dispatch(getAllData({item:data}))
+      } 
+
+      const Root = () => {
+      return(
+        <>
+          <Header />
+          <Outlet />
+          <Footer />
+        </>
+      )
+      }
+    const router = createBrowserRouter(
+      createRoutesFromElements(
+        <Route path="/" element={<Root />}>
+          <Route index element={<Home />} />
+          <Route path="*" element={<Navigate to="/"/>} />
+          {elementsRoot}
+        </Route>
+      )
+    ) 
+  
+    return(
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <RouterProvider router={router} />
     </>
-   )
-  }
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/" element={<Root />}>
-        <Route index element={<Home />} />
-        <Route path="*" element={<Navigate to="/"/>} />
-      </Route>
-    )
-  ) 
- 
-  return(
-  <>
-    <RouterProvider router={router} />
-  </>
-)}
+  )}
 
-export default App
+  export default App
