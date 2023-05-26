@@ -4,6 +4,7 @@ import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars , faSearch ,faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import { faUser  } from "@fortawesome/free-regular-svg-icons"
+import { Link } from "react-router-dom"
 
 const Header = () => {
 
@@ -26,7 +27,7 @@ const Header = () => {
                 </nav> : <></>}
                 <FontAwesomeIcon icon={faBars} size="xl" style={{color: "#ffffff",}} onClick={() => showMenu(true)} className="menu-icon"/>
                 <div className="header-section-head-logo">
-                    <img src={logo} alt="logo" className="logo"/>
+                    <Link to="/"><img src={logo} alt="logo" className="logo"/></Link>
                 </div>
                 <div className="nav-bar-md">
                     <ul className="nav-list">

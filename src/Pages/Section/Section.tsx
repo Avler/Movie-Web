@@ -5,6 +5,7 @@ import { dataMovies } from "../../App"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faCirclePlay } from "@fortawesome/free-regular-svg-icons"
 import VideoContainer from "../../Components/Youtube/VideoConteiner"
+import MoviesShow from "../../Components/MoviesList/MoviesList"
 
 const Section = () => {
 
@@ -59,6 +60,10 @@ const Section = () => {
     return(
         <section className="section-cont">
             {oneElement}
+            <div>
+                <h2>You May Also Like</h2>
+                <MoviesShow />
+            </div>
         </section>
     )
 }
