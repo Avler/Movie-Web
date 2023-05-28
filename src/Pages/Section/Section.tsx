@@ -60,8 +60,8 @@ const Section = () => {
     return(
         <section className="section-cont">
             {oneElement}
-            <div>
-                <h2>You May Also Like</h2>
+            <div className="section-cont-othermovies">
+                <h2 className="title">You May Also Like</h2>
                 <MoviesShow />
             </div>
         </section>
