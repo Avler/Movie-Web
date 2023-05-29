@@ -3,7 +3,8 @@ import { useSelector } from "react-redux/es/exports"
 import { dataMovies } from "../../App"
 import {useState} from "react"
 import { Link } from "react-router-dom"
-import MoviesShow from "../../Components/MoviesList/MoviesList"
+import MoviesList from "../../Components/MoviesList/MoviesList"
+import MoviesListComing from "../../Components/MoviesList/MovieListComingsoon"
 
 const Home = () => {
 
@@ -24,8 +25,15 @@ const changeCaterogry = (item:boolean) => {
                 <button className={showCategory? "btn-active" : "btn"} onClick={() =>changeCaterogry(true)}>Movies</button>
                 <button className={showCategory? "btn" : "btn-active"} onClick={() =>changeCaterogry(false)}>TV Shows</button>
             </div>
-            <h2 className="cont-section-title">{showCategory ? "Trending Movies" : "Trending Tv Shows"}</h2>
-            <MoviesShow />
+            <div>
+                <h2 className="cont-section-title">{showCategory ? "Trending Movies" : "Trending Tv Shows"}</h2>
+                <MoviesList />
+            </div>
+           
+            <div className="cont-coming-soon">
+                <h2 className="cont-section-title">Coming Soon</h2>
+                <MoviesListComing />
+            </div>
         </div>
       </section>
     )

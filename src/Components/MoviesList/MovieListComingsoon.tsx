@@ -5,14 +5,14 @@ import "./movieList.scss"
 
 
 
-const MoviesList = () => {
+const MoviesListComing = () => {
 
     const data = useSelector((state:{data:{value: {item:dataMovies[]}}}) => state.data.value.item)
     const today = new Date()
     
     let dataMovies = data.filter((item:dataMovies) => {
         const releasedData = new Date(item.released)
-        return item.category === "Movie"  && releasedData <= today })
+        return (item.category === "Movie" || item.category ==="TvShow") && releasedData > today })
     
     const scrollToTop = () => {
         window.scrollTo({
@@ -48,4 +48,4 @@ const MoviesList = () => {
 }
 
 
-export default MoviesList
+export default MoviesListComing

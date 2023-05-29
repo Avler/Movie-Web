@@ -20,9 +20,10 @@ const Header = () => {
                  <nav className="header-section-nav" > 
                     <button className="close-btn" onClick={() => showMenu(false)}><FontAwesomeIcon icon={faArrowLeft} style={{color: "#000000",}} />Close menu</button>
                     <ul className="nav-list">
-                        <li className="nav-items">Home</li>
-                        <li className="nav-items">Movies</li>
-                        <li className="nav-items">TV Shows</li>
+                        <Link to="/"><li className="nav-items">Home</li></Link>
+                        <Link to="/Movies"><li className="nav-items">Movies</li></Link>
+                        <Link to="/TvShows"><li className="nav-items">TV Shows</li></Link>
+                        
                     </ul>
                 </nav> : <></>}
                 <FontAwesomeIcon icon={faBars} size="xl" style={{color: "#ffffff",}} onClick={() => showMenu(true)} className="menu-icon"/>
@@ -31,9 +32,9 @@ const Header = () => {
                 </div>
                 <div className="nav-bar-md">
                     <ul className="nav-list">
-                        <li className="nav-items">Home</li>
-                        <li className="nav-items">Movies</li>
-                        <li className="nav-items">TV Shows</li>
+                        <Link to="/"><li className="nav-items">Home</li></Link>
+                        <Link to="/Movies"><li className="nav-items">Movies</li></Link>
+                        <Link to="/TvShows"><li className="nav-items">TV Shows</li></Link>
                     </ul>
                 </div>
                 <div>
