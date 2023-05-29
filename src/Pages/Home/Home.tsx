@@ -1,6 +1,4 @@
 import "./home.scss"
-import { useSelector } from "react-redux/es/exports"
-import { dataMovies } from "../../App"
 import {useState} from "react"
 import { Link } from "react-router-dom"
 import MoviesList from "../../Components/MoviesandTvShowList/MoviesList"

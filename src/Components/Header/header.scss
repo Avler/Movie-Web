@@ -101,26 +101,43 @@ a{
             }
         }
     }
-    .header-section-search{
-        position: relative;
-        margin-bottom: 20px;
-        width: 80%;
+    .header-section-list{
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        .search-input{
-            width: 100%;
-            height: 30px;
-            border-radius: 5px;
-            padding:2px 0px 0px 50px;
-            border: none;
-        }
-        .search-input:focus{
-            outline: none;
-        }
-        .icon{
-            position:absolute;
-            left: 1rem;
+        flex-direction: column;
+        .header-section-search{
+            position: relative;
+            margin-bottom: 20px;
+            width: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @media(min-width:550px){
+                width: 60%;
+              }
+            @media(min-width:1150px){
+                width: 50%;
+            }
+            @media(min-width:1550px){
+                width: 40%;
+            }
+            .search-input{
+                width: 100%;
+                height: 30px;
+                border-radius: 5px;
+                padding:2px 0px 0px 50px;
+                border: none;
+            }
+            .search-input:focus{
+                outline: none;
+            }
+            .icon{
+                position:absolute;
+                left: 1rem;
+            }
         }
     }
+   
 }

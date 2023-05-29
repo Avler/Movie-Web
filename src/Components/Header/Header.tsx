@@ -5,10 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars , faSearch ,faArrowLeft } from "@fortawesome/free-solid-svg-icons"
 import { faUser  } from "@fortawesome/free-regular-svg-icons"
 import { Link } from "react-router-dom"
+import Searchbar from "../search-bar/Searchbar"
 
 const Header = () => {
 
     const [navMenu , setNavMenu] = useState<boolean>(false)
+    const [searchValue , setSearchValue] = useState<string>("")
 
     const showMenu = (state:boolean) => {
         setNavMenu(state)
@@ -41,9 +43,19 @@ const Header = () => {
                     <FontAwesomeIcon icon={faUser} size="xl" style={{color: "#ffffff",}} className="user-icon"/>
                 </div>
             </div>
-            <form className="header-section-search">
-                <FontAwesomeIcon icon={faSearch} size="sm" className="icon"  />
-                <input type="text" className="search-input" />
+            <form className="header-section-list">
+                <div className="header-section-search">
+                    <FontAwesomeIcon icon={faSearch} size="sm" className="icon"  />
+                    <input 
+                        type="text" 
+                        className="search-input" 
+                        onChange={(e) => setSearchValue(e.target.value)}
+                        value={searchValue}
+                        placeholder="Search Products"
+                    />
+                </div>
+              
+                <Searchbar search={searchValue} setsearch={setSearchValue}/>
             </form>
         </section>
     )
