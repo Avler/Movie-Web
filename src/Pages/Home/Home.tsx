@@ -3,8 +3,9 @@ import { useSelector } from "react-redux/es/exports"
 import { dataMovies } from "../../App"
 import {useState} from "react"
 import { Link } from "react-router-dom"
-import MoviesList from "../../Components/MoviesList/MoviesList"
-import MoviesListComing from "../../Components/MoviesList/MovieListComingsoon"
+import MoviesList from "../../Components/MoviesandTvShowList/MoviesList"
+import MoviesListComing from "../../Components/MoviesandTvShowList/Comingsoon"
+import TvShowsList from "../../Components/MoviesandTvShowList/TvShowsList"
 
 const Home = () => {
 
@@ -27,7 +28,7 @@ const changeCaterogry = (item:boolean) => {
             </div>
             <div>
                 <h2 className="cont-section-title">{showCategory ? "Trending Movies" : "Trending Tv Shows"}</h2>
-                <MoviesList />
+                {showCategory ? <MoviesList /> : <TvShowsList />}
             </div>
            
             <div className="cont-coming-soon">

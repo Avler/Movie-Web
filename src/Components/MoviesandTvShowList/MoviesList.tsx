@@ -5,14 +5,16 @@ import "./movieList.scss"
 
 
 
-const MoviesListComing = () => {
+const MoviesList = () => {
 
     const data = useSelector((state:{data:{value: {item:dataMovies[]}}}) => state.data.value.item)
     const today = new Date()
     
-    let dataMovies = data.filter((item:dataMovies) => {
+    const dataMovies = data.filter((item:dataMovies) => {
         const releasedData = new Date(item.released)
-        return (item.category === "Movie" || item.category ==="TvShow") && releasedData > today })
+        return item.category === "Movie"  && releasedData <= today })
+    
+    const showCaseData = dataMovies.slice(0,30)
     
     const scrollToTop = () => {
         window.scrollTo({
@@ -22,7 +24,7 @@ const MoviesListComing = () => {
       };
      
     
-    const dataMoviesElemt = dataMovies.map(elm => {
+    const dataMoviesElemt = showCaseData.map(elm => {
         return(
             <div className="cont-movies-elm" key={elm.id}>
                 <div className="cont-img">
@@ -48,4 +50,4 @@ const MoviesListComing = () => {
 }
 
 
-export default MoviesListComing
+export default MoviesList

@@ -5,7 +5,8 @@ import { dataMovies } from "../../App"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faCirclePlay } from "@fortawesome/free-regular-svg-icons"
 import VideoContainer from "../../Components/Youtube/VideoConteiner"
-import MoviesShow from "../../Components/MoviesList/MoviesList"
+import MoviesList from "../../Components/MoviesandTvShowList/MoviesList"
+import TvShowsList from "../../Components/MoviesandTvShowList/TvShowsList"
 
 const Section = () => {
 
@@ -52,7 +53,10 @@ const Section = () => {
                         <VideoContainer youtubeLink={elm.trailer} />
                     </div>
                 </div>
-                
+                <div className="section-cont-othermovies">
+                    <h2 className="title">You May Also Like</h2>
+                    {elm.category === "Movie" ? <MoviesList /> : <TvShowsList />}
+            </div>
             </div>
         )
     })
@@ -60,10 +64,7 @@ const Section = () => {
     return(
         <section className="section-cont">
             {oneElement}
-            <div className="section-cont-othermovies">
-                <h2 className="title">You May Also Like</h2>
-                <MoviesShow />
-            </div>
+            
         </section>
     )
 }

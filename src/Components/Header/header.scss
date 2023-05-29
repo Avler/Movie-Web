@@ -8,6 +8,10 @@
         opacity: 1;
     }
 }
+a{
+    text-decoration: none;
+    color: inherit;
+}
 .header-section{
     display: flex;
     flex-direction: column;
@@ -86,10 +90,7 @@
                     .nav-items:hover{
                         color: orange;
                     }
-                    a{
-                        text-decoration: none;
-                        color: inherit;
-                    }
+                   
                 }
             }
         }
