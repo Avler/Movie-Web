@@ -15,7 +15,7 @@ const AllMoviesList = () => {
         const releasedData = new Date(item.released)
         return item.category === "Movie"  && releasedData <= today })
     
-    const [showSlice , setShowSlice] = useState()
+    const [showSlice , setShowSlice] = useState<number>()
     
     const scrollToTop = () => {
         window.scrollTo({
@@ -31,11 +31,11 @@ const AllMoviesList = () => {
         listSlices.push(dataMovies.slice(i, i+30))
     }
     console.log(listSlices)
-    const showSliceValue = (index) => {
+    const showSliceValue = (index:number) => {
         setShowSlice(index)
     }
 
-    const dataMoviesList = listSlices.map(( elm, index) => {
+    const dataMoviesList = listSlices.map(( elm:any, index:number) => {
         return(
             <li className="list-element" key={index} >
                 <p onClick={() => showSliceValue(index)}>{index + 1}</p>
