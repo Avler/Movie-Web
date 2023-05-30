@@ -24,7 +24,7 @@ const changeCaterogry = (item:boolean) => {
                 <button className={showCategory? "btn-active" : "btn"} onClick={() =>changeCaterogry(true)}>Movies</button>
                 <button className={showCategory? "btn" : "btn-active"} onClick={() =>changeCaterogry(false)}>TV Shows</button>
             </div>
-            <div>
+            <div className="cont-section-movies">
                 <h2 className="cont-section-title">{showCategory ? "Trending Movies" : "Trending Tv Shows"}</h2>
                 {showCategory ? <MoviesList /> : <TvShowsList />}
             </div>

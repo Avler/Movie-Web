@@ -8,6 +8,7 @@ import { getAllData } from "./Redux/dataSlice"
 import supabase from "./supabase"
 import {useEffect} from "react"
 import Section from "./Pages/Section/Section"
+import AllMoviesList from "./Pages/Movies/AllMovies"
 
 export interface dataMovies {
   id:number,
@@ -59,6 +60,7 @@ export interface dataMovies {
         <Route path="/" element={<Root />}>
           <Route index element={<Home />} />
           <Route path="*" element={<Navigate to="/"/>} />
+          <Route path="/Movies" element={<AllMoviesList />} />
           {elementsRoot}
         </Route>
       )
