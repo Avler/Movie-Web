@@ -60,7 +60,7 @@ const Section = () => {
             </div>
         )
     })
-
+    
     return(
         <section className="section-cont">
             {oneElement}    

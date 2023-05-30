@@ -1,0 +1,61 @@
+@keyframes slideInLeft {
+    0% {
+        top: -100%;
+        opacity: 0.4;
+    }
+    100% {
+        top: 50;
+        opacity: 1;
+    }
+}
+.cont-form {
+    top: 40%;
+    position: absolute;
+    background-color: rgb(96, 96, 103);
+    width: 370px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 5px;
+    animation: slideInLeft 2s backwards;
+    .input-cont{
+        display: flex;
+        flex-direction: column;
+    }
+    .logo{
+        width: 40px;
+    }
+    .user-panel-title{
+        color: aliceblue;
+    }
+    .user-panel-input{
+        width: 280px;
+        height: 35px;
+        border-radius: 2px;
+        padding-left:10px ;
+        font-size: 1.1rem;
+        border: none;
+        margin: 10px 0px;
+    }
+    .user-panel-btn-cont {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        .user-panel-btn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            width: 125px;
+            height: 35px;
+            background-color: rgb(225, 225, 52);
+            border-radius: 5px;
+            font-size:  clamp(1rem, 0.8286rem + 0.4571vw, 1.1rem);
+            border: none;
+            margin-top: 20px;
+        }
+        }
+}

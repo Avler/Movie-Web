@@ -3,7 +3,6 @@ import "./search.scss"
 import { useSelector } from "react-redux";
 import { dataMovies } from "../../App";
 
-
 const Searchbar = ({search ,setsearch}:any) => {
 
     const data = useSelector((state:{data:{value: {item:dataMovies[]}}}) => state.data.value.item)
@@ -25,7 +24,6 @@ const Searchbar = ({search ,setsearch}:any) => {
                              search === "" ? null : <Link to={`/${movie.route}`} key={movie.id} onClick={clearSearch} className={"list-item"} >
                                 <img src={movie.img}/>
                                 <span>{movie.title}</span>
-                                
                              </Link>
                          )
                      }

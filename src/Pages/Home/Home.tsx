@@ -5,7 +5,7 @@ import MoviesList from "../../Components/MoviesandTvShowList/MoviesList"
 import MoviesListComing from "../../Components/MoviesandTvShowList/Comingsoon"
 import TvShowsList from "../../Components/MoviesandTvShowList/TvShowsList"
 
-const Home = () => {
+const Home = ({login}:any) => {
 
 const [showCategory , setShowCategory] = useState<boolean>(true)
 
@@ -28,7 +28,6 @@ const changeCaterogry = (item:boolean) => {
                 <h2 className="cont-section-title">{showCategory ? "Trending Movies" : "Trending Tv Shows"}</h2>
                 {showCategory ? <MoviesList /> : <TvShowsList />}
             </div>
-           
             <div className="cont-coming-soon">
                 <h2 className="cont-section-title">Coming Soon</h2>
                 <MoviesListComing />

@@ -3,8 +3,6 @@ import { dataMovies } from "../../App"
 import { Link } from "react-router-dom"
 import "./movie.scss"
 
-
-
 const MoviesListComing = () => {
 
     const data = useSelector((state:{data:{value: {item:dataMovies[]}}}) => state.data.value.item)
@@ -23,7 +21,6 @@ const MoviesListComing = () => {
         });
       };
      
-    
     const dataMoviesElemt = showCaseData.map(elm => {
         return(
             <div className="cont-movies-elm" key={elm.id}>
@@ -44,8 +41,6 @@ const MoviesListComing = () => {
         <div className="cont-movies">
             {dataMoviesElemt}
         </div>
-                
-            
     )
 }
 

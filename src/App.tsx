@@ -8,8 +8,8 @@ import { getAllData } from "./Redux/dataSlice"
 import supabase from "./supabase"
 import {useEffect} from "react"
 import Section from "./Pages/Section/Section"
-import AllMoviesList from "./Pages/Movies/AllMovies"
-import AllTvshow from "./Pages/TvShows/AllTvshow"
+import AllMoviesList from "./Pages/AllMoviesAndTv/AllMovies"
+import AllTvshow from "./Pages/AllMoviesAndTv/AllTvshow"
 
 export interface dataMovies {
   id:number,

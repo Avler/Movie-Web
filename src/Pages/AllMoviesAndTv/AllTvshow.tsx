@@ -1,22 +1,20 @@
 import { useSelector } from "react-redux"
 import { dataMovies } from "../../App"
 import { Link } from "react-router-dom"
-import "./allmovieList.scss"
+import "./allList.scss"
 import {useState} from "react"
 
-
-
-const AllMoviesList = () => {
+const AllTvshow = () => {
 
     const data = useSelector((state:{data:{value: {item:dataMovies[]}}}) => state.data.value.item)
     const today = new Date()
     
-    const dataMovies = data.filter((item:dataMovies) => {
+    const dataTv = data.filter((item:dataMovies) => {
         const releasedData = new Date(item.released)
-        return item.category === "Movie"  && releasedData <= today })
+        return item.category === "TvShow"  && releasedData <= today })
 
-    const dataMoviesShow = dataMovies.slice(0,24)
-    const [showSlice , setShowSlice] = useState(dataMoviesShow)
+    const dataTvShow = dataTv.slice(0,24)
+    const [showSlice , setShowSlice] = useState(dataTvShow)
     
     const scrollToTop = () => {
         window.scrollTo({
@@ -25,18 +23,16 @@ const AllMoviesList = () => {
         });
       };
      
-   
-
     const listSlices:any = [];
-    for (let i=0; i < dataMovies.length; i+=24) {
-        listSlices.push(dataMovies.slice(i, i+24))
+    for (let i=0; i < dataTv.length; i+=24) {
+        listSlices.push(dataTv.slice(i, i+24))
     }
-    console.log(showSlice)
+   
     const showSliceValue = (index:number) => {
         setShowSlice(listSlices[index])
     }
 
-    const dataMoviesList = listSlices.map(( elm:any, index:number) => {
+    const dataTvList = listSlices.map(( elm:any, index:number) => {
         return(
             <li className="list-element" key={index} onClick={() => showSliceValue(index)}>
                 <p >{index + 1}</p>
@@ -44,11 +40,8 @@ const AllMoviesList = () => {
             )
     }   
     )
-        
-            
-    
-
-    const dataMoviesElemt = showSlice.map(elm => {
+          
+    const dataTvElemt = showSlice.map(elm => {
         return(
             <div className="cont-movies-elm" key={elm.id}>
                 <div className="cont-img">
@@ -66,21 +59,18 @@ const AllMoviesList = () => {
     })
     return(
         <div className="cont-section-movies">
-            <h2 className="cont-section-title">All Movies</h2>
+            <h2 className="cont-section-title">All TvShows</h2>
             <div className="list-cont">
                 <ul className="list" >
-                    {dataMoviesList}
+                    {dataTvList}
                 </ul>
             </div>
             <div className="cont-movies-element">
-                {dataMoviesElemt}
+                {dataTvElemt}
             </div>
-        </div>
-        
-                
-            
+        </div>   
     )
 }
 
 
-export default AllMoviesList
+export default AllTvshow

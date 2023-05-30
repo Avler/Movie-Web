@@ -1,22 +1,20 @@
 import { useSelector } from "react-redux"
 import { dataMovies } from "../../App"
 import { Link } from "react-router-dom"
-import "./alltvshow.scss"
+import "./allList.scss"
 import {useState} from "react"
 
-
-
-const AllTvshow = () => {
+const AllMoviesList = () => {
 
     const data = useSelector((state:{data:{value: {item:dataMovies[]}}}) => state.data.value.item)
     const today = new Date()
     
-    const dataTv = data.filter((item:dataMovies) => {
+    const dataMovies = data.filter((item:dataMovies) => {
         const releasedData = new Date(item.released)
-        return item.category === "TvShow"  && releasedData <= today })
+        return item.category === "Movie"  && releasedData <= today })
 
-    const dataTvShow = dataTv.slice(0,24)
-    const [showSlice , setShowSlice] = useState(dataTvShow)
+    const dataMoviesShow = dataMovies.slice(0,24)
+    const [showSlice , setShowSlice] = useState(dataMoviesShow)
     
     const scrollToTop = () => {
         window.scrollTo({
@@ -25,18 +23,16 @@ const AllTvshow = () => {
         });
       };
      
-   
-
     const listSlices:any = [];
-    for (let i=0; i < dataTv.length; i+=24) {
-        listSlices.push(dataTv.slice(i, i+24))
+    for (let i=0; i < dataMovies.length; i+=24) {
+        listSlices.push(dataMovies.slice(i, i+24))
     }
-   
+    console.log(showSlice)
     const showSliceValue = (index:number) => {
         setShowSlice(listSlices[index])
     }
 
-    const dataTvList = listSlices.map(( elm:any, index:number) => {
+    const dataMoviesList = listSlices.map(( elm:any, index:number) => {
         return(
             <li className="list-element" key={index} onClick={() => showSliceValue(index)}>
                 <p >{index + 1}</p>
@@ -45,10 +41,7 @@ const AllTvshow = () => {
     }   
     )
         
-            
-    
-
-    const dataTvElemt = showSlice.map(elm => {
+    const dataMoviesElemt = showSlice.map(elm => {
         return(
             <div className="cont-movies-elm" key={elm.id}>
                 <div className="cont-img">
@@ -66,21 +59,18 @@ const AllTvshow = () => {
     })
     return(
         <div className="cont-section-movies">
-            <h2 className="cont-section-title">All TvShows</h2>
+            <h2 className="cont-section-title">All Movies</h2>
             <div className="list-cont">
                 <ul className="list" >
-                    {dataTvList}
+                    {dataMoviesList}
                 </ul>
             </div>
             <div className="cont-movies-element">
-                {dataTvElemt}
+                {dataMoviesElemt}
             </div>
-        </div>
-        
-                
-            
+        </div>   
     )
 }
 
 
-export default AllTvshow
+export default AllMoviesList

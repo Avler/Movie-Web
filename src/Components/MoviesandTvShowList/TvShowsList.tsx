@@ -23,7 +23,6 @@ const TvShowsList = () => {
         });
       };
      
-    
     const dataTvShowElemt = showCaseData.map(elm => {
         return(
             <div className="cont-movies-elm" key={elm.id}>
@@ -44,8 +43,6 @@ const TvShowsList = () => {
         <div className="cont-movies">
             {dataTvShowElemt}
         </div>
-                
-            
     )
 }
 
