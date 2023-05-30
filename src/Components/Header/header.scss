@@ -58,11 +58,12 @@ a{
             .nav-list{
                 color: white;
                 list-style: none;
-                margin-top: 20px;
+                margin-top: 18px;
                 .nav-items{
                     position: relative;
                     cursor: pointer;
                     padding: 10px 5px;
+                    
                     &::after {
                         content: "";
                         position: absolute;
@@ -86,6 +87,7 @@ a{
                     list-style: none;
                     .nav-items{
                         cursor: pointer;
+                        font-size: 18px;
                     }
                     .nav-items:hover{
                         color: orange;

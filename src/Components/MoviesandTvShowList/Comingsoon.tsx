@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { dataMovies } from "../../App"
 import { Link } from "react-router-dom"
-import "./movieList.scss"
+
 
 
 
