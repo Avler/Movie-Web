@@ -54,9 +54,9 @@ const LoginForm = ({reg , setReg}:any) => {
             <img src={logo} alt="logo" className="logo"/>
             <div>
                 <h2 className="user-panel-title">E-mail</h2>
-                <input type="e-mail" placeholder="example@gmail.com" className="user-panel-input" onChange={handleChange} name="email"/>
+                <input type="e-mail" placeholder="Example@gmail.com" className="user-panel-input" onChange={handleChange} name="email"/>
                 <h2 className="user-panel-title">Password</h2>
-                <input type="password" placeholder="password" className="user-panel-input" onChange={handleChange} name="password"/>
+                <input type="password" placeholder="Password" className="user-panel-input" onChange={handleChange} name="password"/>
             </div>
             <div className="user-panel-btn-cont">
                 <button className="user-panel-btn" type="submit">Login</button>
