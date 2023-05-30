@@ -63,8 +63,7 @@ const Section = () => {
 
     return(
         <section className="section-cont">
-            {oneElement}
-            
+            {oneElement}    
         </section>
     )
 }

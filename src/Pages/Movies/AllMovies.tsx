@@ -14,8 +14,9 @@ const AllMoviesList = () => {
     const dataMovies = data.filter((item:dataMovies) => {
         const releasedData = new Date(item.released)
         return item.category === "Movie"  && releasedData <= today })
-    
-    const [showSlice , setShowSlice] = useState<number>()
+
+    const dataMoviesShow = dataMovies.slice(0,24)
+    const [showSlice , setShowSlice] = useState(dataMoviesShow)
     
     const scrollToTop = () => {
         window.scrollTo({
@@ -27,18 +28,18 @@ const AllMoviesList = () => {
    
 
     const listSlices:any = [];
-    for (let i=0; i < dataMovies.length; i+=30) {
-        listSlices.push(dataMovies.slice(i, i+30))
+    for (let i=0; i < dataMovies.length; i+=24) {
+        listSlices.push(dataMovies.slice(i, i+24))
     }
-    console.log(listSlices)
+    console.log(showSlice)
     const showSliceValue = (index:number) => {
-        setShowSlice(index)
+        setShowSlice(listSlices[index])
     }
 
     const dataMoviesList = listSlices.map(( elm:any, index:number) => {
         return(
-            <li className="list-element" key={index} >
-                <p onClick={() => showSliceValue(index)}>{index + 1}</p>
+            <li className="list-element" key={index} onClick={() => showSliceValue(index)}>
+                <p >{index + 1}</p>
             </li>
             )
     }   
@@ -47,7 +48,7 @@ const AllMoviesList = () => {
             
     
 
-    const dataMoviesElemt = dataMovies.map(elm => {
+    const dataMoviesElemt = showSlice.map(elm => {
         return(
             <div className="cont-movies-elm" key={elm.id}>
                 <div className="cont-img">

@@ -9,6 +9,7 @@ import supabase from "./supabase"
 import {useEffect} from "react"
 import Section from "./Pages/Section/Section"
 import AllMoviesList from "./Pages/Movies/AllMovies"
+import AllTvshow from "./Pages/TvShows/AllTvshow"
 
 export interface dataMovies {
   id:number,
@@ -61,6 +62,7 @@ export interface dataMovies {
           <Route index element={<Home />} />
           <Route path="*" element={<Navigate to="/"/>} />
           <Route path="/Movies" element={<AllMoviesList />} />
+          <Route path="/TvShows" element={<AllTvshow />} />
           {elementsRoot}
         </Route>
       )

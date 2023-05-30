@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { dataMovies } from "../../App"
 import { Link } from "react-router-dom"
-
+import "./movie.scss"
 
 
 
@@ -14,7 +14,7 @@ const MoviesListComing = () => {
         const releasedData = new Date(item.released)
         return (item.category === "Movie" || item.category ==="TvShow") && releasedData > today })
 
-    const showCaseData = dataMovies.slice(0,30)
+    const showCaseData = dataMovies.slice(0,24)
     
     const scrollToTop = () => {
         window.scrollTo({

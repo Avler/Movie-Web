@@ -14,7 +14,7 @@ const MoviesList = () => {
         const releasedData = new Date(item.released)
         return item.category === "Movie"  && releasedData <= today })
     
-    const showCaseData = dataMovies.slice(0,30)
+    const showCaseData = dataMovies.slice(0,24)
     
     const scrollToTop = () => {
         window.scrollTo({
