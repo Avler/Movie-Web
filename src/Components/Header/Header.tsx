@@ -63,7 +63,7 @@ const Header = () => {
                 </div>
                 <Searchbar search={searchValue} setsearch={setSearchValue}/>
             </form>
-            {loginPanel ? <LoginForm />   : <></>}
+            {loginPanel ? <LoginForm closePanel={setLoginPanel}/>   : <></>}
         </section>
     )
 }

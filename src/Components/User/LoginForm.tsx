@@ -2,8 +2,11 @@ import "./form.scss"
 import {useState} from "react"
 import supabase from "../../supabase"
 import logo from "../../assets/logo.png"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faXmark} from "@fortawesome/free-solid-svg-icons"
 
-const LoginForm = ({reg , setReg}:any) => {
+
+const LoginForm = ({closePanel}:any) => {
 
     const [regPanel , setRegPanel] = useState<boolean>(false)
     const [formData , setFormData]= useState({
@@ -37,6 +40,7 @@ const LoginForm = ({reg , setReg}:any) => {
         <>
         {regPanel ? 
           <form onSubmit={handleSubmit} className="cont-form">
+            <FontAwesomeIcon icon={faXmark} style={{color: "#5b1010"}} size="xl"  className="close" onClick={() => closePanel(false)}/>
             <img src={logo} alt="logo" className="logo"/>
             <div className="input-cont">
                 <h2 className="user-panel-title">Fill All Fields</h2>
@@ -51,6 +55,7 @@ const LoginForm = ({reg , setReg}:any) => {
         </form> 
         : 
         <form onSubmit={handleSubmit} className="cont-form">
+            <FontAwesomeIcon icon={faXmark} style={{color: "#5b1010"}} size="xl"  className="close" onClick={() => closePanel(false)}/>
             <img src={logo} alt="logo" className="logo"/>
             <div>
                 <h2 className="user-panel-title">E-mail</h2>

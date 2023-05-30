@@ -21,6 +21,12 @@
     gap: 20px;
     border-radius: 5px;
     animation: slideInLeft 2s backwards;
+    .close{
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        cursor: pointer;
+    }
     .input-cont{
         display: flex;
         flex-direction: column;
