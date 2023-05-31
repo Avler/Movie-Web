@@ -3,7 +3,7 @@ import {createBrowserRouter,createRoutesFromElements,Route,Navigate,RouterProvid
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAllData } from "./Redux/dataSlice";
-import Home from "./pages/home/home";
+import Home from "./pages/Home/home";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import supabase from "./supabase";
