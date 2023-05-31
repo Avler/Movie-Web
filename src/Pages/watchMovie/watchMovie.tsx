@@ -9,7 +9,7 @@ import MoviesList from "../../Components/MoviesList/MoviesList";
 import TvShowsList from "../../Components/TvShowList/TvShowsList";
 import "./style.scss";
 
-const watchMovie = ()=>{
+const WatchMovie = ()=>{
   const location = useLocation();
   const elmRoute = location.pathname.substring(1);
   const data = useSelector(
@@ -69,4 +69,4 @@ const watchMovie = ()=>{
   return <section className="section-cont">{oneElement}</section>;
 };
 
-export default watchMovie;
+export default WatchMovie;

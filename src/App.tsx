@@ -3,13 +3,13 @@ import {createBrowserRouter,createRoutesFromElements,Route,Navigate,RouterProvid
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAllData } from "./Redux/dataSlice";
-import Home from "./pages/Home/Home";
+import Home from "./pages/home/Home";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import supabase from "./supabase";
-import WatchMovie from "./pages/watchMovie/watchMovie";
-import Movies from "./pages/Movies/Movies"
-import TvShows from "./pages/TvShows/tvShows";
+import WatchMovie from "./pages/watchMovie/WatchMovie";
+import Movies from "./pages/movies/Movies"
+import TvShows from "./pages/tvShows/TvShows";
 import "./main.scss";
 
 export interface dataMovies {
