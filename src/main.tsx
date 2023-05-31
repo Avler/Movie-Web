@@ -3,7 +3,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import App from "./App";
-import dataReducer from "./reduxx/dataSlice";
+import dataReducer from "./redux/dataSlice";
 
 const store = configureStore({
   reducer: {
