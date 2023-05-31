@@ -6,7 +6,7 @@ import MoviesListComing from "../../Components/MoviesComingSoon/MoviesComingSoon
 import TvShowsList from "../../Components/TvShowList/TvShowsList";
 import "./style.scss";
 
-const home = ()=>{
+const Home = ()=>{
   const [showCategory, setShowCategory] = useState<boolean>(true);
 
   const changeCaterogry = (item: boolean) => {
@@ -53,4 +53,4 @@ const home = ()=>{
   );
 };
 
-export default home;
+export default Home;
