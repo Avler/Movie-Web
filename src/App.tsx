@@ -9,7 +9,7 @@ import Header from "./Components/Header/Header";
 import supabase from "./supabase";
 import WatchMovie from "./pages/watchMovie/WatchMovie";
 import Movies from "./pages/movies/Movies"
-import TvShows from "./pages/tvShows/TvShows";
+import TvShows from './pages/tvShows/TvShows';
 import "./main.scss";
 
 export interface dataMovies {
