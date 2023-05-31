@@ -2,7 +2,7 @@ import React from "react"
 import {createBrowserRouter,createRoutesFromElements,Route,Navigate,RouterProvider,Outlet,} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getAllData } from "./Redux/dataSlice";
+import { getAllData } from "./reduxx/dataSlice";
 import Home from "./pages/home/home";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
