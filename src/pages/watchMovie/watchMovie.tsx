@@ -7,9 +7,9 @@ import { dataMovies } from "../../App";
 import VideoContainer from "../../Components/Youtube/VideoConteiner";
 import MoviesList from "../../Components/MoviesList/MoviesList";
 import TvShowsList from "../../Components/TvShowList/TvShowsList";
-import "./style.scss";
+import "../../commonStyle/stylePages.scss";
 
-const WatchMovie = ()=>{
+const watchMovie = ()=>{
   const location = useLocation();
   const elmRoute = location.pathname.substring(1);
   const data = useSelector(
@@ -69,4 +69,4 @@ const WatchMovie = ()=>{
   return <section className="section-cont">{oneElement}</section>;
 };
 
-export default WatchMovie;
+export default watchMovie;

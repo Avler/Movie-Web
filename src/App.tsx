@@ -7,9 +7,9 @@ import Home from "./pages/home/home";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import supabase from "./supabase";
-import WatchMovie from "./pages/watchMovie/WatchMovie";
-import Movies from "./pages/movies/Movies"
-import TvShows from './pages/tvShows/TvShows';
+import WatchMovie from "./pages/watchMovie/watchMovie";
+import Movies from "./pages/movies/movies"
+import TvShows from './pages/tvShows/tvShows';
 import "./main.scss";
 
 export interface dataMovies {

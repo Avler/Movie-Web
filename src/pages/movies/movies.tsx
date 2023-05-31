@@ -4,7 +4,7 @@ import { dataMovies } from "../../App";
 import { Link } from "react-router-dom";
 import "../../commonStyle/stylePages.scss";
 
-const Movies = ()=>{
+const movies = ()=>{
   const data = useSelector(
     (state: { data: { value: { item: dataMovies[] } } }) =>
       state.data.value.item
@@ -81,4 +81,4 @@ const Movies = ()=>{
   );
 };
 
-export default Movies;
+export default movies;

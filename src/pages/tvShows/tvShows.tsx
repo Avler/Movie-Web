@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "../../commonStyle/stylePages.scss";
 
-const TvShows = ()=>{
+const tvShows = ()=>{
   const data = useSelector(
     (state: { data: { value: { item: dataMovies[] } } }) =>
       state.data.value.item
@@ -82,4 +82,4 @@ const TvShows = ()=>{
   );
 };
 
-export default TvShows;
+export default tvShows;
