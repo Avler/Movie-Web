@@ -3,13 +3,13 @@ import {createBrowserRouter,createRoutesFromElements,Route,Navigate,RouterProvid
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAllData } from "./Redux/dataSlice";
-import Home from "./pages/home/home";
+import Home from "./pages/Home/Home";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import supabase from "./supabase";
 import WatchMovie from "./pages/watchMovie/watchMovie";
-import Movies from "./pages/movies/movies"
-import AllTvshow from "./pages/tvShows/tvShows";
+import Movies from "./pages/Movies/Movies"
+import TvShows from "./pages/TvShows/tvShows";
 import "./main.scss";
 
 export interface dataMovies {
@@ -65,7 +65,7 @@ const App = ()=>{
         <Route index element={<Home />} />
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/Movies" element={<Movies />} />
-        <Route path="/TvShows" element={<AllTvshow />} />
+        <Route path="/TvShows" element={<TvShows />} />
         {elementsRoot}
       </Route>
     )
