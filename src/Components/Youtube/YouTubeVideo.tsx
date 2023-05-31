@@ -1,9 +1,12 @@
-import React from 'react';
-import YouTube from 'react-youtube';
+import React from "react";
+import YouTube from "react-youtube";
 
-const YouTubeVideo = ({ videoId }:any) => {
+interface YouTubeVideoProps {
+  videoId: string ;
+}
+const YouTubeVideo: React.FC<YouTubeVideoProps> = ({ videoId }) => {
   const opts = {
-    width: '100%',
+    width: "100%",
     playerVars: {
       autoplay: 1,
     },
