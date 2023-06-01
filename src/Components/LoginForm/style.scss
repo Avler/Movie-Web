@@ -1,15 +1,16 @@
 @keyframes slideInLeft {
   0% {
-    top: -100%;
-    opacity: 0.4;
+    left: 0%;
+    opacity: 0;
   }
   100% {
-    top: 50;
+    left:100%;
     opacity: 1;
   }
 }
 .cont-form {
-  top: 40%;
+  top: 30%;
+  left: 50%;
   position: absolute;
   background-color: rgb(96, 96, 103);
   width: 370px;
@@ -20,7 +21,7 @@
   flex-direction: column;
   gap: 20px;
   border-radius: 5px;
-  animation: slideInLeft 2s backwards;
+  animation: slideInLeft 1s ease-in;
   .close {
     position: absolute;
     top: 20px;

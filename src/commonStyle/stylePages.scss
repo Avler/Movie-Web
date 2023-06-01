@@ -6,6 +6,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
   .cont-section-title {
     color: #fff;
     margin-bottom: 30px;
@@ -38,10 +39,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 1600px;
-    height: 1100px;
     margin: auto;
     @media (min-width: 600px) {
       grid-template-columns: repeat(3, 1fr);
+      
     }
     @media (min-width: 800px) {
       grid-template-columns: repeat(4, 1fr);

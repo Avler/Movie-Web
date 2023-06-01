@@ -8,16 +8,18 @@ import Searchbar from "../Searchbar/Searchbar";
 import LoginForm from "../LoginForm/LoginForm";
 import "./style.scss";
 
-const Header = () =>{
+interface HeaderProps{
+  showPanel:(state: ((prevState:boolean) => boolean )) => void
+}
+const Header:React.FC<HeaderProps> = ({showPanel}) =>{
   const [navMenu, setNavMenu] = useState<boolean>(false);
-  const [loginPanel, setLoginPanel] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
 
   const showMenu = (state: boolean) => {
     setNavMenu(state);
   };
-  const showPanel = () => {
-    setLoginPanel((x) => !x);
+  const userPanel = ()=>{
+    showPanel((state) => !state);
     setNavMenu(false);
   };
 
@@ -79,7 +81,7 @@ const Header = () =>{
             size="xl"
             style={{ color: "#ffffff" }}
             className="user-icon"
-            onClick={() => showPanel()}
+            onClick={() => userPanel()}
           />
         </div>
       </div>
@@ -96,7 +98,6 @@ const Header = () =>{
         </div>
         <Searchbar search={searchValue} setsearch={setSearchValue} />
       </form>
-      {loginPanel ? <LoginForm closePanel={setLoginPanel} /> : <></>}
     </section>
   );
 };

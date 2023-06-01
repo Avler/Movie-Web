@@ -14,7 +14,7 @@ interface FormData {
 interface LoginFormProps {
   closePanel: (state: boolean) => void;
 }
-const LoginForm: React.FC<LoginFormProps> = ({ closePanel }:any ) => {
+const LoginForm: React.FC<LoginFormProps> = ({ closePanel } ) => {
   const [regPanel, setRegPanel] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
     name: "",

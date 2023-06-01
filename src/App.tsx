@@ -1,7 +1,7 @@
 import React from "react"
 import {createBrowserRouter,createRoutesFromElements,Route,Navigate,RouterProvider,Outlet,} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect , useState} from "react";
 import { getAllData } from "./redux/dataSlice";
 import Home from "./pages/home/home";
 import Footer from "./Components/Footer/Footer";
@@ -10,6 +10,7 @@ import supabase from "./supabase";
 import WatchMovie from "./pages/watchMovie/watchMovie";
 import Movies from "./pages/movies/movies"
 import TvShows from './pages/tvShows/tvShows';
+import LoginForm from "./Components/LoginForm/LoginForm"
 import "./main.scss";
 
 export interface dataMovies {
@@ -29,6 +30,7 @@ export interface dataMovies {
 }
 
 const App = ()=>{
+  const [loginPanel, setLoginPanel] = useState<boolean>(false);
   const dispatch = useDispatch();
   const data = useSelector(
     (state: { data: { value: { item: dataMovies[] } } }) =>
@@ -53,7 +55,8 @@ const App = ()=>{
   const Root = () => {
     return (
       <>
-        <Header />
+        <Header showPanel={setLoginPanel} />
+        {loginPanel ? <LoginForm closePanel={setLoginPanel}/>: <></>}
         <Outlet />
         <Footer />
       </>
