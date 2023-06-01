@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect , useState} from "react";
 import { getAllData } from "./redux/dataSlice";
 import Home from "./pages/home/home";
-import Footer from "./Components/Footer/Footer";
-import Header from "./Components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 import supabase from "./supabase";
 import WatchMovie from "./pages/watchMovie/watchMovie";
 import Movies from "./pages/movies/movies"

@@ -1,9 +1,9 @@
 import React from "react"
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import MoviesList from "../../Components/MoviesList/MoviesList";
-import MoviesListComing from "../../Components/MoviesComingSoon/MoviesComingSoon";
-import TvShowsList from "../../Components/TvShowList/TvShowsList";
+import MoviesList from "../../components/MoviesList/MoviesList";
+import MoviesListComing from "../../components/MoviesComingSoon/MoviesComingSoon";
+import TvShowsList from "../../components/TvShowList/TvShowsList";
 import "./style.scss";
 
 interface homeProps {
