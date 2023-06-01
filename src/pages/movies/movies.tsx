@@ -33,7 +33,6 @@ const movies:React.FC<homeProps> = ({loginPanelShadow})=>{
   for (let i = 0; i < dataMovies.length; i += 24) {
     listSlices.push(dataMovies.slice(i, i + 24));
   }
-  console.log(showSlice);
   const showSliceValue = (index: number) => {
     setShowSlice(listSlices[index]);
   };

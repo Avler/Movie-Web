@@ -39,6 +39,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 1600px;
+    min-height: 600px;
     margin: auto;
     @media (min-width: 600px) {
       grid-template-columns: repeat(3, 1fr);
