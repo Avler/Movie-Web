@@ -10,7 +10,7 @@ import supabase from "./supabase";
 import WatchMovie from "./pages/watchMovie/watchMovie";
 import Movies from "./pages/movies/movies"
 import TvShows from './pages/tvShows/tvShows';
-import LoginForm from "./Components/LoginForm/LoginForm"
+import LoginForm from "./components/LoginForm/LoginForm"
 import "./main.scss";
 
 export interface dataMovies {
