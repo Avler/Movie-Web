@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "../../commonStyle/stylePages.scss";
 
-const tvShows = ()=>{
+interface homeProps {
+  loginPanelShadow:boolean
+}
+const tvShows:React.FC<homeProps> = ({loginPanelShadow})=>{
   const data = useSelector(
     (state: { data: { value: { item: dataMovies[] } } }) =>
       state.data.value.item
@@ -78,6 +81,10 @@ const tvShows = ()=>{
         <ul className="list">{dataTvList}</ul>
       </div>
       <div className="cont-movies-element">{dataTvElemt}</div>
+      {loginPanelShadow ? 
+      <div className="home-cont-shadow"> 
+      </div>:
+      <></>}
     </div>
   );
 };

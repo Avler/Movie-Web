@@ -65,10 +65,10 @@ const App = ()=>{
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
-        <Route index element={<Home />} />
+        <Route index element={<Home loginPanelShadow={loginPanel}/>} />
         <Route path="*" element={<Navigate to="/" />} />
-        <Route path="/Movies" element={<Movies />} />
-        <Route path="/TvShows" element={<TvShows />} />
+        <Route path="/Movies" element={<Movies loginPanelShadow={loginPanel}/>} />
+        <Route path="/TvShows" element={<TvShows loginPanelShadow={loginPanel}/>} />
         {elementsRoot}
       </Route>
     )

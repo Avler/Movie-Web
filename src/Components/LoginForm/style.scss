@@ -9,10 +9,11 @@
   }
 }
 .cont-form {
+  z-index: 1;
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
-  background-color: rgb(96, 96, 103);
+  background-color: rgb(18, 18, 18);
   width: 370px;
   height: 400px;
   display: flex;

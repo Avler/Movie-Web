@@ -4,7 +4,10 @@ import { dataMovies } from "../../App";
 import { Link } from "react-router-dom";
 import "../../commonStyle/stylePages.scss";
 
-const movies = ()=>{
+interface homeProps {
+  loginPanelShadow:boolean
+}
+const movies:React.FC<homeProps> = ({loginPanelShadow})=>{
   const data = useSelector(
     (state: { data: { value: { item: dataMovies[] } } }) =>
       state.data.value.item
@@ -77,6 +80,10 @@ const movies = ()=>{
         <ul className="list">{dataMoviesList}</ul>
       </div>
       <div className="cont-movies-element">{dataMoviesElemt}</div>
+      {loginPanelShadow ? 
+      <div className="home-cont-shadow"> 
+      </div>:
+      <></>}
     </div>
   );
 };

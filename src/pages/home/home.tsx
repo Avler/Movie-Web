@@ -6,7 +6,11 @@ import MoviesListComing from "../../Components/MoviesComingSoon/MoviesComingSoon
 import TvShowsList from "../../Components/TvShowList/TvShowsList";
 import "./style.scss";
 
-const home = ()=>{
+interface homeProps {
+  loginPanelShadow:boolean
+}
+
+const home:React.FC<homeProps> = ({loginPanelShadow})=>{
   const [showCategory, setShowCategory] = useState<boolean>(true);
 
   const changeCaterogry = (item: boolean) => {
@@ -49,6 +53,10 @@ const home = ()=>{
           <MoviesListComing />
         </div>
       </div>
+      {loginPanelShadow ? 
+      <div className="home-cont-shadow"> 
+      </div>:
+      <></>}
     </section>
   );
 };
