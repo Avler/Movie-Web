@@ -1,16 +1,16 @@
-@keyframes slideInLeft {
+@keyframes slideIn {
   0% {
-    left: 0%;
+    top: 0%;
     opacity: 0;
   }
   100% {
-    left:100%;
+    top:550px;
     opacity: 1;
   }
 }
 .cont-form {
-  top: 30%;
   left: 50%;
+  transform: translate(-50%, -50%);
   position: absolute;
   background-color: rgb(96, 96, 103);
   width: 370px;
@@ -21,7 +21,7 @@
   flex-direction: column;
   gap: 20px;
   border-radius: 5px;
-  animation: slideInLeft 1s ease-in;
+  animation: slideIn 2s forwards;
   .close {
     position: absolute;
     top: 20px;
@@ -56,13 +56,14 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      width: 125px;
+      width: 135px;
       height: 35px;
       background-color: rgb(225, 225, 52);
       border-radius: 5px;
       font-size: clamp(1rem, 0.8286rem + 0.4571vw, 1.1rem);
       border: none;
       margin-top: 20px;
+      padding: 10px;
     }
   }
 }
