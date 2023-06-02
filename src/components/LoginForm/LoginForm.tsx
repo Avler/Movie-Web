@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react"
-import { useState } from "react";
+import { useState ,useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import supabase from "../../supabase";
@@ -16,6 +16,7 @@ interface LoginFormProps {
 }
 const LoginForm: React.FC<LoginFormProps> = ({ closePanel } ) => {
   const [regPanel, setRegPanel] = useState<boolean>(false);
+  const [token , setToken] = useState<boolean>(false)
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -31,7 +32,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ closePanel } ) => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmitLogin = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const { data, error } = await supabase.auth.signInWithPassword({
@@ -40,15 +41,43 @@ const LoginForm: React.FC<LoginFormProps> = ({ closePanel } ) => {
     });
     if (error) throw error;
   };
+  const handleSubmitRegister = async (e:React.FormEvent) => {
+    e.preventDefault()
+   try{
+    const { data, error } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+        options: {
+            data: {
+                name: formData.name
+            }
+        }
+        })
+   if (error) throw error
+   alert("check the e-mail")
+   } catch(error) {
+   
+   }
+}
 
+useEffect(() =>{
+  if(token) {
+    sessionStorage.setItem("sb-okrxaaeemdsjenccftlt-auth-token" , JSON.stringify(token))
+  } 
+  if(sessionStorage.getItem("sb-okrxaaeemdsjenccftlt-auth-token")) {
+    let data = JSON.parse(sessionStorage.getItem("sb-okrxaaeemdsjenccftlt-auth-token")!)
+    setToken(data)
+  }
+},[])
   const showRegisterForm = (item: boolean) => {
     setRegPanel(item);
   };
+  console.log(token)
 
   return (
     <>
       {regPanel ? (
-        <form onSubmit={handleSubmit} className="cont-form">
+        <form onSubmit={handleSubmitRegister} className="cont-form">
           <FontAwesomeIcon
             icon={faXmark}
             style={{ color: "#5b1010" }}
@@ -92,7 +121,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ closePanel } ) => {
           </div>
         </form>
       ) : (
-        <form onSubmit={handleSubmit} className="cont-form">
+        <form onSubmit={handleSubmitLogin} className="cont-form">
           <FontAwesomeIcon
             icon={faXmark}
             style={{ color: "#5b1010" }}
