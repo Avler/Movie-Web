@@ -9,6 +9,7 @@ import MoviesList from "../../components/MoviesList/MoviesList";
 import TvShowsList from "../../components/TvShowList/TvShowsList";
 import "./style.scss";
 
+
 const watchMovie = ()=>{
   const location = useLocation();
   const elmRoute = location.pathname.substring(1);
