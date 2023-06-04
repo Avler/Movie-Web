@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlay } from "@fortawesome/free-regular-svg-icons";
 import { dataMovies } from "../../App";
-import VideoContainer from "../../components/Youtube/VideoConteiner";
-import MoviesList from "../../components/MoviesList/MoviesList";
-import TvShowsList from "../../components/TvShowList/TvShowsList";
+import VideoContainer from "../Youtube/VideoConteiner";
+import MoviesList from "../MoviesList/MoviesList";
+import TvShowsList from "../TvShowList/TvShowsList";
 import "../../commonStyle/stylePages.scss";
 
 const watchMovie = ()=>{
