@@ -7,7 +7,7 @@ import { dataMovies } from "../../App";
 import VideoContainer from "../../components/Youtube/VideoConteiner";
 import MoviesList from "../../components/MoviesList/MoviesList";
 import TvShowsList from "../../components/TvShowList/TvShowsList";
-import "../../commonStyle/stylePages.scss";
+import "./style.scss";
 
 const watchMovie = ()=>{
   const location = useLocation();
