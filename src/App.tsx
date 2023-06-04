@@ -2,15 +2,15 @@ import React from "react"
 import {createBrowserRouter,createRoutesFromElements,Route,Navigate,RouterProvider,Outlet,} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect , useState} from "react";
-import { getAllData } from "./save/redux/dataSlice";
-import Home from "./save/home/home";
+import { getAllData } from "./redux/dataSlice";
+import Home from "./pages/home/home";
 import Footer from "./components/Footer/Footer";
-import Header from "./save/Header/Header";
+import Header from "./components/Header/Header";
 import supabase from "./supabase";
-import WatchMovie from "./save/watchMovie/watchMovie";
-import Movies from "./save/movies/movies"
-import TvShows from './save/tvShows/tvShows';
-import LoginForm from "./save/LoginForm/LoginForm"
+import WatchMovie from "./pages/watchMovie/watchMovie";
+import Movies from "./pages/movies/movies"
+import TvShows from './pages/tvShows/tvShows';
+import LoginForm from "./components/LoginForm/LoginForm"
 import "./main.scss";
 
 export interface dataMovies {
