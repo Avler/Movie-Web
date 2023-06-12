@@ -1,5 +1,5 @@
 
-#  Movie-Web Project  https://e-commerce-shop-avler.vercel.app/
+#  Movie-Web Project  https://movie-web-avler.vercel.app/
 
 Technologies:
 
