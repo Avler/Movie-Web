@@ -13,6 +13,12 @@ import TvShows from './pages/tvShows/tvShows';
 import LoginForm from "./components/LoginForm/LoginForm"
 import "./main.scss";
 
+export interface userToken {
+  user: {
+    id: string;
+  } | null;
+  session: object | null;
+}
 export interface dataMovies {
   id: number;
   casts: string;
@@ -31,6 +37,7 @@ export interface dataMovies {
 
 const App = ()=>{
   const [loginPanel, setLoginPanel] = useState<boolean>(false);
+  const [token , setToken] = useState<null | userToken>(null)
   const dispatch = useDispatch();
   const data = useSelector(
     (state: { data: { value: { item: dataMovies[] } } }) =>
@@ -51,12 +58,12 @@ const App = ()=>{
     const { data } = await supabase.from("data-movies").select("*");
     dispatch(getAllData({ item: data }));
   }
-
+  console.log(token)
   const Root = () => {
     return (
       <>
-        <Header showPanel={setLoginPanel} />
-        {loginPanel ? <LoginForm closePanel={setLoginPanel}/>: <></>}
+        <Header showPanel={setLoginPanel} userToken={token} setUserToken={setToken}/>
+        {loginPanel && token===null? <LoginForm closePanel={setLoginPanel} token={token} setToken={setToken}/>: <></>}
         <Outlet />
         <Footer />
       </>
@@ -65,10 +72,10 @@ const App = ()=>{
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
-        <Route index element={<Home loginPanelShadow={loginPanel}/>} />
+        <Route index element={<Home loginPanelShadow={loginPanel} token={token}/>} />
         <Route path="*" element={<Navigate to="/" />} />
-        <Route path="/Movies" element={<Movies loginPanelShadow={loginPanel}/>} />
-        <Route path="/TvShows" element={<TvShows loginPanelShadow={loginPanel}/>} />
+        <Route path="/Movies" element={<Movies loginPanelShadow={loginPanel} token={token}/>} />
+        <Route path="/TvShows" element={<TvShows loginPanelShadow={loginPanel} token={token}/>} />
         {elementsRoot}
       </Route>
     )

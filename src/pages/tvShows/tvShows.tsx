@@ -7,8 +7,9 @@ import "../../commonStyle/stylePages.scss";
 
 interface homeProps {
   loginPanelShadow:boolean
+  token:object | null
 }
-const tvShows:React.FC<homeProps> = ({loginPanelShadow})=>{
+const tvShows:React.FC<homeProps> = ({loginPanelShadow , token})=>{
   const data = useSelector(
     (state: { data: { value: { item: dataMovies[] } } }) =>
       state.data.value.item
@@ -81,7 +82,7 @@ const tvShows:React.FC<homeProps> = ({loginPanelShadow})=>{
         <ul className="list">{dataTvList}</ul>
       </div>
       <div className="cont-movies-element">{dataTvElemt}</div>
-      {loginPanelShadow ? 
+      {loginPanelShadow && token===null? 
       <div className="home-cont-shadow"> 
       </div>:
       <></>}

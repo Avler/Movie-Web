@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import supabase from "../../supabase";
 import logo from "../../assets/logo.png";
+import { userToken } from "../../App";
 import "./style.scss";
 
 interface FormData {
@@ -13,10 +14,11 @@ interface FormData {
 }
 interface LoginFormProps {
   closePanel: (state: boolean) => void;
+  token:userToken | null
+  setToken:React.Dispatch<React.SetStateAction<userToken | null >>
 }
-const LoginForm: React.FC<LoginFormProps> = ({ closePanel } ) => {
+const LoginForm: React.FC<LoginFormProps> = ({ closePanel ,token ,setToken} ) => {
   const [regPanel, setRegPanel] = useState<boolean>(false);
-  const [token , setToken] = useState<boolean>(false)
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -34,13 +36,17 @@ const LoginForm: React.FC<LoginFormProps> = ({ closePanel } ) => {
 
   const handleSubmitLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-
     const { data, error } = await supabase.auth.signInWithPassword({
       email: formData.email,
       password: formData.password,
     });
     if (error) throw error;
+    setToken(data)
+    if(token) {
+      closePanel(false)
+    }
   };
+
   const handleSubmitRegister = async (e:React.FormEvent) => {
     e.preventDefault()
    try{
@@ -56,23 +62,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ closePanel } ) => {
    if (error) throw error
    alert("check the e-mail")
    } catch(error) {
-   
    }
 }
-
-useEffect(() =>{
-  if(token) {
-    sessionStorage.setItem("sb-okrxaaeemdsjenccftlt-auth-token" , JSON.stringify(token))
-  } 
-  if(sessionStorage.getItem("sb-okrxaaeemdsjenccftlt-auth-token")) {
-    let data = JSON.parse(sessionStorage.getItem("sb-okrxaaeemdsjenccftlt-auth-token")!)
-    setToken(data)
-  }
-},[])
   const showRegisterForm = (item: boolean) => {
     setRegPanel(item);
   };
-  console.log(token)
 
   return (
     <>

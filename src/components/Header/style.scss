@@ -13,11 +13,13 @@ a {
   color: inherit;
 }
 .header-section {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   background-color: rgb(18, 18, 18);
+  height: 150px;
   .header-section-head {
     width: 100%;
     display: flex;
@@ -138,6 +140,21 @@ a {
         position: absolute;
         left: 1rem;
       }
+    }
+  }
+  .user-login-panel{
+    color: #fff;
+    position: absolute;
+    top: 90px;
+    right: 250px;
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    .user-login-list{
+      cursor: pointer;
+    }
+    .user-login-list:hover{
+      color: orange;
     }
   }
 }

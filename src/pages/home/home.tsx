@@ -8,9 +8,10 @@ import "./style.scss";
 
 interface homeProps {
   loginPanelShadow:boolean
+  token:object | null
 }
 
-const home:React.FC<homeProps> = ({loginPanelShadow})=>{
+const home:React.FC<homeProps> = ({loginPanelShadow , token})=>{
   const [showCategory, setShowCategory] = useState<boolean>(true);
 
   const changeCaterogry = (item: boolean) => {
@@ -53,13 +54,12 @@ const home:React.FC<homeProps> = ({loginPanelShadow})=>{
           <MoviesListComing />
         </div>
       </div>
-      {loginPanelShadow ? 
+      {loginPanelShadow && token===null? 
       <div className="home-cont-shadow"> 
       </div>:
       <></>}
     </section>
   );
 };
-
 
 export default home;

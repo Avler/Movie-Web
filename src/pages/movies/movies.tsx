@@ -6,8 +6,9 @@ import "../../commonStyle/stylePages.scss";
 
 interface homeProps {
   loginPanelShadow:boolean
+  token:object | null
 }
-const movies:React.FC<homeProps> = ({loginPanelShadow})=>{
+const movies:React.FC<homeProps> = ({loginPanelShadow , token})=>{
   const data = useSelector(
     (state: { data: { value: { item: dataMovies[] } } }) =>
       state.data.value.item
@@ -79,7 +80,7 @@ const movies:React.FC<homeProps> = ({loginPanelShadow})=>{
         <ul className="list">{dataMoviesList}</ul>
       </div>
       <div className="cont-movies-element">{dataMoviesElemt}</div>
-      {loginPanelShadow ? 
+      {loginPanelShadow && token===null? 
       <div className="home-cont-shadow"> 
       </div>:
       <></>}

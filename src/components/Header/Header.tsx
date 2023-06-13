@@ -6,15 +6,24 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import logo from "../../assets/logo.png";
 import Searchbar from "../Searchbar/Searchbar";
 import LoginForm from "../LoginForm/LoginForm";
+import { userToken } from "../../App";
 import "./style.scss";
 
+
 interface HeaderProps{
-  showPanel:(state: ((prevState:boolean) => boolean )) => void
+  showPanel:(state: ((prevState:boolean) => boolean ) | boolean) => void 
+  userToken: userToken | null
+  setUserToken: React.Dispatch<React.SetStateAction<userToken | null>>
 }
-const Header:React.FC<HeaderProps> = ({showPanel}) =>{
+const Header:React.FC<HeaderProps> = ({showPanel,userToken,setUserToken}) =>{
   const [navMenu, setNavMenu] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
-
+  
+  let userId
+  if(userToken) {
+    userId = userToken!.user!.id 
+  }  
+  
   const showMenu = (state: boolean) => {
     setNavMenu(state);
   };
@@ -22,7 +31,10 @@ const Header:React.FC<HeaderProps> = ({showPanel}) =>{
     showPanel((state) => !state);
     setNavMenu(false);
   };
-
+  const logOut = ()=>{
+    setUserToken(null)
+    showPanel(false)
+  }
   return (
     <section className="header-section">
       <div className="header-section-head">
@@ -98,6 +110,14 @@ const Header:React.FC<HeaderProps> = ({showPanel}) =>{
         </div>
         <Searchbar search={searchValue} setsearch={setSearchValue} />
       </form>
+      {userToken ? <div>
+          <ul className="user-login-panel">
+            <li className="user-login-list">Profile</li>
+            {userId === "26a76563-1f79-46e6-bced-30507749acc1" ? 
+            <li className="user-login-list">Admin Panel</li> : <></>}
+            <li className="user-login-list" onClick={logOut}>Logout</li>
+          </ul>
+        </div>: <></>}
     </section>
   );
 };
