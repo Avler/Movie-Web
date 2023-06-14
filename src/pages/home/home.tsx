@@ -1,17 +1,17 @@
-import React from "react"
+import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import MoviesList from "../../components/MoviesList/MoviesList"
+import MoviesList from "../../components/MoviesList/MoviesList";
 import MoviesListComing from "../../components/MoviesComingSoon/MoviesComingSoon";
 import TvShowsList from "../../components/TvShowList/TvShowsList";
 import "./style.scss";
 
 interface homeProps {
-  loginPanelShadow:boolean
-  token:object | null
+  loginPanelShadow: boolean;
+  token: object | null;
 }
 
-const home:React.FC<homeProps> = ({loginPanelShadow , token})=>{
+const home: React.FC<homeProps> = ({ loginPanelShadow, token }) => {
   const [showCategory, setShowCategory] = useState<boolean>(true);
 
   const changeCaterogry = (item: boolean) => {
@@ -54,10 +54,11 @@ const home:React.FC<homeProps> = ({loginPanelShadow , token})=>{
           <MoviesListComing />
         </div>
       </div>
-      {loginPanelShadow && token===null? 
-      <div className="home-cont-shadow"> 
-      </div>:
-      <></>}
+      {loginPanelShadow && token === null ? (
+        <div className="home-cont-shadow"></div>
+      ) : (
+        <></>
+      )}
     </section>
   );
 };

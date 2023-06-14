@@ -2,7 +2,7 @@ import React from "react";
 import YouTube from "react-youtube";
 
 interface YouTubeVideoProps {
-  videoId: string ;
+  videoId: string;
 }
 const YouTubeVideo: React.FC<YouTubeVideoProps> = ({ videoId }) => {
   const opts = {

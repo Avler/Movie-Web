@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { dataMovies } from "../../App";
 import "../../commonStyle/styleContMovies.scss";
 
-const MoviesListComing = ()=>{
+const MoviesListComing = () => {
   const data = useSelector(
     (state: { data: { value: { item: dataMovies[] } } }) =>
       state.data.value.item

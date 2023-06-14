@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { useSelector } from "react-redux";
 import { dataMovies } from "../../App";
 import { Link } from "react-router-dom";
@@ -6,10 +6,10 @@ import { useState } from "react";
 import "../../commonStyle/stylePages.scss";
 
 interface homeProps {
-  loginPanelShadow:boolean
-  token:object | null
+  loginPanelShadow: boolean;
+  token: object | null;
 }
-const tvShows:React.FC<homeProps> = ({loginPanelShadow , token})=>{
+const tvShows: React.FC<homeProps> = ({ loginPanelShadow, token }) => {
   const data = useSelector(
     (state: { data: { value: { item: dataMovies[] } } }) =>
       state.data.value.item
@@ -31,7 +31,7 @@ const tvShows:React.FC<homeProps> = ({loginPanelShadow , token})=>{
     });
   };
 
-  const listSlices:dataMovies[][] = [];
+  const listSlices: dataMovies[][] = [];
   for (let i = 0; i < dataTv.length; i += 24) {
     listSlices.push(dataTv.slice(i, i + 24));
   }
@@ -82,10 +82,11 @@ const tvShows:React.FC<homeProps> = ({loginPanelShadow , token})=>{
         <ul className="list">{dataTvList}</ul>
       </div>
       <div className="cont-movies-element">{dataTvElemt}</div>
-      {loginPanelShadow && token===null? 
-      <div className="home-cont-shadow"> 
-      </div>:
-      <></>}
+      {loginPanelShadow && token === null ? (
+        <div className="home-cont-shadow"></div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

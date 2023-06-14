@@ -1,14 +1,14 @@
-import React,{ useState } from "react"
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { dataMovies } from "../../App";
 import { Link } from "react-router-dom";
 import "../../commonStyle/stylePages.scss";
 
 interface homeProps {
-  loginPanelShadow:boolean
-  token:object | null
+  loginPanelShadow: boolean;
+  token: object | null;
 }
-const movies:React.FC<homeProps> = ({loginPanelShadow , token})=>{
+const movies: React.FC<homeProps> = ({ loginPanelShadow, token }) => {
   const data = useSelector(
     (state: { data: { value: { item: dataMovies[] } } }) =>
       state.data.value.item
@@ -80,10 +80,11 @@ const movies:React.FC<homeProps> = ({loginPanelShadow , token})=>{
         <ul className="list">{dataMoviesList}</ul>
       </div>
       <div className="cont-movies-element">{dataMoviesElemt}</div>
-      {loginPanelShadow && token===null? 
-      <div className="home-cont-shadow"> 
-      </div>:
-      <></>}
+      {loginPanelShadow && token === null ? (
+        <div className="home-cont-shadow"></div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

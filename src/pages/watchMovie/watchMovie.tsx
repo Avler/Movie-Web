@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,8 +9,7 @@ import MoviesList from "../../components/MoviesList/MoviesList";
 import TvShowsList from "../../components/TvShowList/TvShowsList";
 import "./style.scss";
 
-
-const watchMovie = ()=>{
+const watchMovie = () => {
   const location = useLocation();
   const elmRoute = location.pathname.substring(1);
   const data = useSelector(

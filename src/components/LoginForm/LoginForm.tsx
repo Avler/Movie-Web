@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react"
-import { useState ,useEffect } from "react";
+import React, { FunctionComponent } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import supabase from "../../supabase";
@@ -14,10 +14,14 @@ interface FormData {
 }
 interface LoginFormProps {
   closePanel: (state: boolean) => void;
-  token:userToken | null
-  setToken:React.Dispatch<React.SetStateAction<userToken | null >>
+  token: userToken | null;
+  setToken: React.Dispatch<React.SetStateAction<userToken | null>>;
 }
-const LoginForm: React.FC<LoginFormProps> = ({ closePanel ,token ,setToken} ) => {
+const LoginForm: React.FC<LoginFormProps> = ({
+  closePanel,
+  token,
+  setToken,
+}) => {
   const [regPanel, setRegPanel] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -41,29 +45,28 @@ const LoginForm: React.FC<LoginFormProps> = ({ closePanel ,token ,setToken} ) =>
       password: formData.password,
     });
     if (error) throw error;
-    setToken(data)
-    if(token) {
-      closePanel(false)
+    setToken(data);
+    if (token) {
+      closePanel(false);
     }
   };
 
-  const handleSubmitRegister = async (e:React.FormEvent) => {
-    e.preventDefault()
-   try{
-    const { data, error } = await supabase.auth.signUp({
+  const handleSubmitRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const { data, error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
         options: {
-            data: {
-                name: formData.name
-            }
-        }
-        })
-   if (error) throw error
-   alert("check the e-mail")
-   } catch(error) {
-   }
-}
+          data: {
+            name: formData.name,
+          },
+        },
+      });
+      if (error) throw error;
+      alert("check the e-mail");
+    } catch (error) {}
+  };
   const showRegisterForm = (item: boolean) => {
     setRegPanel(item);
   };

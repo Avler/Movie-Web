@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react";
 import "./style.scss";
 
-const Footer = ()=>{
+const Footer = () => {
   return (
     <section className="footer-cont">
       <div className="footer-cont-des">
