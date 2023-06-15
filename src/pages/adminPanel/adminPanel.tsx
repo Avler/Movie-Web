@@ -1,6 +1,10 @@
+import React from "react";
+import { useState } from "react";
+import MoviesList from "../../components/MoviesList/MoviesList";
 import "./style.scss";
 
 const adminPanel = () => {
+    
   return (
     <section className="admin-panel-conteiner">
       <div className="admin-panel-nav">
@@ -11,6 +15,9 @@ const adminPanel = () => {
           <li className="admin-panel-nav-element">Edit Movie/TvShow</li>
           <li className="admin-panel-nav-element">Remove Movie/TvShow</li>
         </ul>
+      </div>
+      <div>
+        <MoviesList />
       </div>
     </section>
   );
